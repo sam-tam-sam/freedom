@@ -1,3 +1,4 @@
+```markdown
 # Freedom Processing Form
 
 This project is a web-based form designed to streamline the process of collecting and processing user data. It supports both English and Arabic languages, and includes a dark mode feature for better user experience. The form is designed to be responsive and works well on both desktop and mobile devices.
@@ -42,6 +43,62 @@ The service worker caches the necessary files (HTML, CSS, JavaScript, and images
 4. **Print or Clear**: Use the print button to print the form or the clear button to reset all fields.
 5. **Toggle Language and Theme**: Use the language and theme toggle buttons to switch between English/Arabic and light/dark modes.
 
+### Data Format and Mapping Rules
+
+The form expects data to be pasted in a specific format for automatic mapping to work correctly. Below is an example of the expected data format:
+
+```plaintext
+First name: Basheer
+Last name: Al SAIDI
+Owner Home Address: 1707 East Central Avenue suite 1
+Owner Phone Number: 19106330016
+Owner Email address: 32432432@gmail.com
+Social Security: 234444444
+Confirm Social Security: 32444444324
+Location Name (DBA): rewwwwwwww
+Legal Name: fddddddg
+Location Address: 8025 Tara Boulevard
+Location Email: nelia_epps@hotmail.com
+Location Phone Number: 19107977979
+required files: Tax Id, Driver License / ID, Voided Check
+```
+
+#### Rules for Data Format:
+1. **Key-Value Pairs**: Each piece of data should be in the format `Key: Value`. The key should match the field label in the form (e.g., `First name`, `Last name`, etc.).
+2. **Line Breaks**: Each key-value pair should be on a new line.
+3. **Required Files**: The required files should be listed after `required files:` and separated by commas.
+4. **Case Sensitivity**: The keys are case-insensitive, but they should match the labels in the form (e.g., `First name` or `first name` will work).
+5. **Special Characters**: Avoid using special characters in keys unless they are part of the label (e.g., `/` in `Driver License / ID`).
+
+#### Example of General Data:
+```plaintext
+First name:
+John
+Last name:
+Doe
+Owner Home Address:
+123 Main Street
+Owner Phone Number:
+1234567890
+Owner Email address:
+john.doe@example.com
+Social Security:
+123456789
+Confirm Social Security:
+123456789
+Location Name (DBA):
+Business Name
+Legal Name:
+Legal Business Name
+Location Address:
+456 Business Avenue
+Location Email:
+business@example.com
+Location Phone Number: 0987654321
+required files:
+Tax Id, Voided Check
+```
+
 ### Installation
 
 To use this project locally, follow these steps:
@@ -85,3 +142,9 @@ This project is open-source and available under the MIT License. Feel free to us
 ---
 
 For any questions or issues, please contact the developer at [email@example.com](mailto:email@example.com).
+```
+
+### Explanation of Data Format:
+The data format is designed to be simple and easy to use. Each field in the form corresponds to a key in the pasted data. The keys must match the labels in the form (e.g., `First name`, `Last name`, etc.). The `required files` section allows users to specify which documents are needed by listing them after the `required files:` label. The form will automatically check the corresponding checkboxes based on the provided list.
+
+This format ensures that the data is correctly parsed and mapped to the appropriate fields, making the form-filling process faster and more efficient.
