@@ -1,7 +1,5 @@
-```markdown
+```markdown              https://sam-tam-sam.github.io/freedom/
 # Freedom Processing Form
-
-https://sam-tam-sam.github.io/freedom/
 
 This project is a web-based form designed to streamline the process of collecting and processing user data. It supports both English and Arabic languages, and includes a dark mode feature for better user experience. The form is designed to be responsive and works well on both desktop and mobile devices.
 
