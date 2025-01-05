@@ -138,13 +138,3 @@ To use this project locally, follow these steps:
 ## License
 
 This project is open-source and available under the MIT License. Feel free to use, modify, and distribute it as needed.
-
----
-
-For any questions or issues, please contact the developer at [email@example.com](mailto:email@example.com).
-```
-
-### Explanation of Data Format:
-The data format is designed to be simple and easy to use. Each field in the form corresponds to a key in the pasted data. The keys must match the labels in the form (e.g., `First name`, `Last name`, etc.). The `required files` section allows users to specify which documents are needed by listing them after the `required files:` label. The form will automatically check the corresponding checkboxes based on the provided list.
-
-This format ensures that the data is correctly parsed and mapped to the appropriate fields, making the form-filling process faster and more efficient.
