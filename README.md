@@ -48,19 +48,31 @@ The service worker caches the necessary files (HTML, CSS, JavaScript, and images
 The form expects data to be pasted in a specific format for automatic mapping to work correctly. Below is an example of the expected data format:
 
 ```plaintext
-First name: Basheer
-Last name: Al SAIDI
-Owner Home Address: 1707 East Central Avenue suite 1
-Owner Phone Number: 19106330016
-Owner Email address: 32432432@gmail.com
-Social Security: 234444444
-Confirm Social Security: 32444444324
-Location Name (DBA): rewwwwwwww
-Legal Name: fddddddg
-Location Address: 8025 Tara Boulevard
-Location Email: nelia_epps@hotmail.com
-Location Phone Number: 19107977979
-required files: Tax Id, Driver License / ID, Voided Check
+First name:
+John
+Last name:
+Doe
+Owner Home Address:
+123 Main Street
+Owner Phone Number:
+1234567890
+Owner Email address:
+john.doe@example.com
+Social Security:
+123456789
+Confirm Social Security:
+123456789
+Location Name (DBA):
+Business Name
+Legal Name:
+Legal Business Name
+Location Address:
+456 Business Avenue
+Location Email:
+business@example.com
+Location Phone Number: 0987654321
+required files:
+Tax Id, Voided Check
 ```
 
 #### Rules for Data Format:
