@@ -82,7 +82,20 @@ languageToggle.addEventListener('click', () => {
     });
     updateModalText(); // تحديث النصوص في النافذة المنبثقة عند تغيير اللغة
     saveUserPreferences();
+    updateInputDirection(); // تحديث اتجاه النص داخل مربعات الإدخال
 });
+
+// تحديث اتجاه النص داخل مربعات الإدخال
+function updateInputDirection() {
+    const inputs = document.querySelectorAll('input[dir="auto"], textarea[dir="auto"]');
+    inputs.forEach(input => {
+        if (currentLanguage === 'ar') {
+            input.setAttribute('dir', 'rtl');
+        } else {
+            input.setAttribute('dir', 'ltr');
+        }
+    });
+}
 
 // Toggle dark mode
 const themeToggle = document.getElementById('theme-toggle');
@@ -178,6 +191,7 @@ function showModalAfterDelay() {
 window.onload = function() {
     loadUserPreferences();
     showModalAfterDelay(); // عرض النافذة المنبثقة بعد 5 ثوانٍ
+    updateInputDirection(); // تحديث اتجاه النص داخل مربعات الإدخال عند التحميل
 };
 
 // وظيفة لفتح وإغلاق النافذة المنبثقة

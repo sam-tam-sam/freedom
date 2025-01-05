@@ -40,37 +40,37 @@
             <div class="form-row">
                 <div class="form-group">
                     <label data-en="First name" data-ar="الاسم الأول">First name</label>
-                    <input type="text" class="form-control" id="firstName">
+                    <input type="text" class="form-control" id="firstName" dir="auto">
                 </div>
                 <div class="form-group">
                     <label data-en="Last Name" data-ar="الاسم الأخير">Last Name</label>
-                    <input type="text" class="form-control" id="lastName">
+                    <input type="text" class="form-control" id="lastName" dir="auto">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group">
                     <label data-en="Owner Home Address" data-ar="عنوان المنزل">Owner Home Address</label>
-                    <input type="text" class="form-control" id="homeAddress">
+                    <input type="text" class="form-control" id="homeAddress" dir="auto">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group">
                     <label data-en="Owner Phone Number" data-ar="رقم الهاتف">Owner Phone Number</label>
-                    <input type="text" class="form-control" id="ownerPhone">
+                    <input type="text" class="form-control" id="ownerPhone" dir="auto">
                 </div>
                 <div class="form-group">
                     <label data-en="Owner Email" data-ar="البريد الإلكتروني">Owner Email</label>
-                    <input type="email" class="form-control" id="ownerEmail">
+                    <input type="email" class="form-control" id="ownerEmail" dir="auto">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group">
                     <label data-en="Social Security" data-ar="الضمان الاجتماعي">Social Security</label>
-                    <input type="text" class="form-control" id="ssn">
+                    <input type="text" class="form-control" id="ssn" dir="auto">
                 </div>
                 <div class="form-group">
                     <label data-en="Confirm Social Security" data-ar="تأكيد الضمان الاجتماعي">Confirm Social Security</label>
-                    <input type="text" class="form-control" id="confirmSSN">
+                    <input type="text" class="form-control" id="confirmSSN" dir="auto">
                 </div>
             </div>
         </div>
@@ -80,27 +80,27 @@
             <div class="form-row">
                 <div class="form-group">
                     <label data-en="Location Name (DBA)" data-ar="اسم الموقع">Location Name (DBA)</label>
-                    <input type="text" class="form-control" id="locationName">
+                    <input type="text" class="form-control" id="locationName" dir="auto">
                 </div>
                 <div class="form-group">
                     <label data-en="Legal Name" data-ar="الاسم القانوني">Legal Name</label>
-                    <input type="text" class="form-control" id="legalName">
+                    <input type="text" class="form-control" id="legalName" dir="auto">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group">
                     <label data-en="Location Address" data-ar="عنوان الموقع">Location Address</label>
-                    <input type="text" class="form-control" id="locationAddress">
+                    <input type="text" class="form-control" id="locationAddress" dir="auto">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group">
                     <label data-en="Location Phone Number" data-ar="رقم هاتف الموقع">Location Phone Number</label>
-                    <input type="text" class="form-control" id="locationPhone">
+                    <input type="text" class="form-control" id="locationPhone" dir="auto">
                 </div>
                 <div class="form-group">
                     <label data-en="Location Email" data-ar="بريد الموقع">Location Email</label>
-                    <input type="email" class="form-control" id="locationEmail">
+                    <input type="email" class="form-control" id="locationEmail" dir="auto">
                 </div>
             </div>
         </div>
@@ -139,41 +139,5 @@
     </div>
 
     <script src="./script.js"></script>
-    <script>
-        // التحقق من دعم Service Worker
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', async () => {
-                try {
-                    // محاولة تسجيل Service Worker
-                    const registration = await navigator.serviceWorker.register('./service-worker.js', {
-                        scope: '/freedomp/'
-                    });
-                    console.log('ServiceWorker registration successful with scope:', registration.scope);
-                    
-                    // إضافة مستمع للتحديثات
-                    registration.addEventListener('updatefound', () => {
-                        const newWorker = registration.installing;
-                        newWorker.addEventListener('statechange', () => {
-                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                // تحديث جديد متاح
-                                if (confirm('تحديث جديد متاح! هل تريد تحديث الصفحة؟')) {
-                                    window.location.reload();
-                                }
-                            }
-                        });
-                    });
-                } catch (error) {
-                    console.error('ServiceWorker registration failed:', error);
-                }
-            });
-
-            // التعامل مع الرسائل من Service Worker
-            navigator.serviceWorker.addEventListener('message', (event) => {
-                if (event.data === 'reload') {
-                    window.location.reload();
-                }
-            });
-        }
-    </script>
 </body>
 </html>

@@ -325,6 +325,27 @@ body[dir="rtl"] .header-controls {
     right: 10px;
 }
 
+/* تحديد اتجاه النص داخل مربعات الإدخال بناءً على اللغة */
+input[dir="auto"],
+textarea[dir="auto"] {
+    direction: ltr; /* الاتجاه الافتراضي من اليسار إلى اليمين */
+}
+
+body[dir="rtl"] input[dir="auto"],
+body[dir="rtl"] textarea[dir="auto"] {
+    direction: rtl; /* الاتجاه من اليمين إلى اليسار للغة العربية */
+}
+
+/* تحديد اتجاه النص داخل مربعات الإدخال للبريد الإلكتروني */
+input[type="email"][dir="auto"] {
+    direction: ltr; /* البريد الإلكتروني يكتب دائمًا من اليسار إلى اليمين */
+}
+
+/* تحديد اتجاه النص داخل مربعات الإدخال للأرقام */
+input[type="text"][dir="auto"] {
+    direction: ltr; /* الأرقام تكتب دائمًا من اليسار إلى اليمين */
+}
+
 /* تعديلات الطباعة */
 @media print {
     body {
