@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-controls">
+            <button id="language-toggle" class="icon-btn" title="Toggle Language">
+                <i class="fas fa-globe"></i>
+            </button>
+            <button id="theme-toggle" class="icon-btn" title="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+        <img src="./logo.png" alt="Logo" class="logo" id="logo-light">
+        <img src="./logo2.png" alt="Logo" class="logo" id="logo-dark" style="display: none;">
+    </header>
+
+    <div class="container">
+        <div class="input-section">
+            <textarea class="input-area" placeholder="Paste data here / الصق البيانات هنا"></textarea>
+        </div>
+        <div class="buttons">
+            <button class="btn print-btn" onclick="window.print()">
+                <i class="fas fa-print"></i> <span data-en="Print" data-ar="طباعة">Print</span>
+            </button>
+            <button class="btn clear-btn" onclick="clearForm()">
+                <i class="fas fa-eraser"></i> <span data-en="Clear" data-ar="مسح">Clear</span>
+            </button>
+        </div>
+
+        <div class="section">
+            <div class="section-title" data-en="Owner Details:" data-ar="تفاصيل المالك:">Owner Details:</div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label data-en="First name" data-ar="الاسم الأول">First name</label>
+                    <input type="text" class="form-control" id="firstName">
+                </div>
+                <div class="form-group">
+                    <label data-en="Last Name" data-ar="الاسم الأخير">Last Name</label>
+                    <input type="text" class="form-control" id="lastName">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label data-en="Owner Home Address" data-ar="عنوان المنزل">Owner Home Address</label>
+                    <input type="text" class="form-control" id="homeAddress">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label data-en="Owner Phone Number" data-ar="رقم الهاتف">Owner Phone Number</label>
+                    <input type="text" class="form-control" id="ownerPhone">
+                </div>
+                <div class="form-group">
+                    <label data-en="Owner Email" data-ar="البريد الإلكتروني">Owner Email</label>
+                    <input type="email" class="form-control" id="ownerEmail">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label data-en="Social Security" data-ar="الضمان الاجتماعي">Social Security</label>
+                    <input type="text" class="form-control" id="ssn">
+                </div>
+                <div class="form-group">
+                    <label data-en="Confirm Social Security" data-ar="تأكيد الضمان الاجتماعي">Confirm Social Security</label>
+                    <input type="text" class="form-control" id="confirmSSN">
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title" data-en="Location Information:" data-ar="معلومات الموقع:">Location Information:</div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label data-en="Location Name (DBA)" data-ar="اسم الموقع">Location Name (DBA)</label>
+                    <input type="text" class="form-control" id="locationName">
+                </div>
+                <div class="form-group">
+                    <label data-en="Legal Name" data-ar="الاسم القانوني">Legal Name</label>
+                    <input type="text" class="form-control" id="legalName">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label data-en="Location Address" data-ar="عنوان الموقع">Location Address</label>
+                    <input type="text" class="form-control" id="locationAddress">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label data-en="Location Phone Number" data-ar="رقم هاتف الموقع">Location Phone Number</label>
+                    <input type="text" class="form-control" id="locationPhone">
+                </div>
+                <div class="form-group">
+                    <label data-en="Location Email" data-ar="بريد الموقع">Location Email</label>
+                    <input type="email" class="form-control" id="locationEmail">
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title" data-en="Required Files:" data-ar="الملفات المطلوبة:">Required Files:</div>
+            <div class="required-files">
+                <label><input type="checkbox" id="taxId"> <span data-en="Tax Id" data-ar="الرقم الضريبي">Tax Id</span></label>
+                <label><input type="checkbox" id="driverLicense"> <span data-en="Driver License / ID" data-ar="رخصة القيادة / الهوية">Driver License / ID</span></label>
+                <label><input type="checkbox" id="voidedCheck"> <span data-en="Voided Check" data-ar="شيك ملغى">Voided Check</span></label>
+                <label><input type="checkbox" id="socialSecurity"> <span data-en="Social Security" data-ar="الضمان الاجتماعي">Social Security</span></label>
+                <label><input type="checkbox" id="fnsEbt"> <span data-en="FNS/EBT" data-ar="FNS/EBT">FNS/EBT</span></label>
+                <label><input type="checkbox" id="other"> <span data-en="Other" data-ar="أخرى">Other</span></label>
+            </div>
+        </div>
+    </div>
+
+    <!-- زر النافذة المنبثقة للتعليمات -->
+    <button id="info-btn" class="icon-btn" title="About">
+        <i class="fas fa-info-circle"></i>
+    </button>
+
+    <!-- النافذة المنبثقة -->
+    <div id="info-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p data-en="Designed and Developed by: Mohammed Aloshari" data-ar="تم التصميم والبرمجة بواسطة: محمد العشاري"></p>
+            <p data-en="Instructions:" data-ar="تعليمات:"></p>
+            <ul>
+                <li data-en="Paste your data in the text area above." data-ar="الصق البيانات في منطقة النص أعلاه."></li>
+                <li data-en="Fill in the required fields automatically." data-ar="املأ الحقول المطلوبة تلقائيًا."></li>
+                <li data-en="Use the print button to print the form." data-ar="استخدم زر الطباعة لطباعة النموذج."></li>
+                <li data-en="Use the clear button to reset the form." data-ar="استخدم زر المسح لإعادة تعيين النموذج."></li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+    <script>
+        // التحقق من دعم Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', async () => {
+                try {
+                    // محاولة تسجيل Service Worker
+                    const registration = await navigator.serviceWorker.register('./service-worker.js', {
+                        scope: '/freedomp/'
+                    });
+                    console.log('ServiceWorker registration successful with scope:', registration.scope);
+                    
+                    // إضافة مستمع للتحديثات
+                    registration.addEventListener('updatefound', () => {
+                        const newWorker = registration.installing;
+                        newWorker.addEventListener('statechange', () => {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                // تحديث جديد متاح
+                                if (confirm('تحديث جديد متاح! هل تريد تحديث الصفحة؟')) {
+                                    window.location.reload();
+                                }
+                            }
+                        });
+                    });
+                } catch (error) {
+                    console.error('ServiceWorker registration failed:', error);
+                }
+            });
+
+            // التعامل مع الرسائل من Service Worker
+            navigator.serviceWorker.addEventListener('message', (event) => {
+                if (event.data === 'reload') {
+                    window.location.reload();
+                }
+            });
+        }
+    </script>
+</body>
+</html>

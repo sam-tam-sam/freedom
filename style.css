@@ -1,0 +1,485 @@
+@page {
+    size: a4;
+    margin: 0.25in;
+}
+
+body {
+    font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 0;
+    background: linear-gradient(135deg, #f3f4f7, #e9eff1);
+    color: #333;
+    min-height: 11in;
+    display: flex;
+    flex-direction: column;
+}
+
+body.dark-mode {
+    background: #1e1e1e;
+    color: #f3f4f7;
+}
+
+header {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: transparent;
+}
+
+.header-controls {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #007bff;
+}
+
+.icon-btn:hover {
+    color: #0056b3;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.container {
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    page-break-before: avoid;
+    page-break-after: avoid;
+}
+
+.section {
+    margin-bottom: 15px;
+    padding: 12px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 12px;
+    break-inside: avoid;
+}
+
+.form-group {
+    flex: 1;
+}
+
+.input-area {
+    width: 96%;
+    height: 120px;
+    padding: 10px;
+    font-size: 13px;
+    line-height: 1.4;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    resize: none;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    font-size: 13px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}
+
+label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 14px;
+    color: #555;
+}
+
+.required-files {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.buttons {
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.print-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+}
+
+.clear-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+    position: relative;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.modal-content p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+
+#info-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #007bff;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    font-size: 24px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#info-btn:hover {
+    background: #0056b3;
+}
+
+/* إظهار وإخفاء اللوجو بناءً على الوضع المظلم */
+#logo-light {
+    display: block;
+}
+
+#logo-dark {
+    display: none;
+}
+
+body.dark-mode #logo-light {
+    display: none;
+}
+
+body.dark-mode #logo-dark {
+    display: block;
+}
+
+/* الوضع الداكن */
+body.dark-mode .container {
+    background: #2d2d2d;
+    color: #f3f4f7;
+}
+
+body.dark-mode .section {
+    background: #3a3a3a;
+    color: #f3f4f7;
+}
+
+body.dark-mode .form-control,
+body.dark-mode .input-area {
+    background: #2d2d2d;
+    color: #f3f4f7;
+    border-color: #555;
+}
+
+body.dark-mode label {
+    color: #f3f4f7;
+}
+
+body.dark-mode .btn {
+    background: #007bff;
+    color: white;
+}
+
+body.dark-mode .btn.clear-btn {
+    background: #dc3545;
+    color: white;
+}
+
+body.dark-mode .modal-content {
+    background: #2d2d2d;
+    color: #f3f4f7;
+}
+
+body.dark-mode .close {
+    color: #f3f4f7;
+}
+
+body.dark-mode .close:hover {
+    color: #ccc;
+}
+
+body.dark-mode .required-files label {
+    color: #f3f4f7;
+}
+
+body.dark-mode .icon-btn {
+    color: #f3f4f7;
+}
+
+body.dark-mode .icon-btn:hover {
+    color: #007bff;
+}
+
+/* تحسين المحاذاة للغة العربية */
+body[dir="rtl"] .form-row,
+body[dir="rtl"] .form-group,
+body[dir="rtl"] .required-files,
+body[dir="rtl"] .buttons {
+    direction: rtl;
+    text-align: right;
+}
+
+body[dir="rtl"] .form-control,
+body[dir="rtl"] .input-area {
+    text-align: right;
+}
+
+body[dir="rtl"] .section-title {
+    text-align: right;
+}
+
+body[dir="rtl"] label {
+    text-align: right;
+}
+
+body[dir="rtl"] .header-controls {
+    left: auto;
+    right: 10px;
+}
+
+/* تعديلات الطباعة */
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+        background: none;
+        color: #000 !important;
+    }
+
+    body.dark-mode {
+        background: white !important;
+        color: #000 !important;
+    }
+
+    header {
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    .container {
+        box-shadow: none;
+        padding: 10px;
+        background: white !important;
+        color: #000 !important;
+    }
+
+    .section {
+        padding: 8px;
+        margin-bottom: 8px;
+        box-shadow: none;
+        background-color: transparent !important;
+        color: #000 !important;
+    }
+
+    .form-control,
+    .input-area {
+        border: 1px solid #000 !important;
+        padding: 6px;
+        background: none !important;
+        color: #000 !important;
+    }
+
+    label {
+        color: #000 !important;
+    }
+
+    .buttons {
+        display: none;
+    }
+
+    .required-files {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form-row {
+        break-inside: avoid;
+    }
+
+    .input-area {
+        display: none;
+    }
+
+    .header-controls, #info-btn {
+        display: none;
+    }
+
+    .section-title, .form-group label, .required-files label {
+        color: #000 !important;
+    }
+
+    input, textarea {
+        color: #000 !important;
+    }
+
+    #firstName,
+    #lastName,
+    #homeAddress,
+    #ownerPhone,
+    #ownerEmail,
+    #ssn,
+    #confirmSSN,
+    #locationName,
+    #legalName,
+    #locationAddress,
+    #locationPhone,
+    #locationEmail,
+    #taxId,
+    #driverLicense,
+    #voidedCheck,
+    #socialSecurity,
+    #fnsEbt,
+    #other {
+        color: #000 !important;
+    }
+
+    label[for="firstName"],
+    label[for="lastName"],
+    label[for="homeAddress"],
+    label[for="ownerPhone"],
+    label[for="ownerEmail"],
+    label[for="ssn"],
+    label[for="confirmSSN"],
+    label[for="locationName"],
+    label[for="legalName"],
+    label[for="locationAddress"],
+    label[for="locationPhone"],
+    label[for="locationEmail"],
+    label[for="taxId"],
+    label[for="driverLicense"],
+    label[for="voidedCheck"],
+    label[for="socialSecurity"],
+    label[for="fnsEbt"],
+    label[for="other"] {
+        color: #000 !important;
+    }
+
+    /* إظهار الشعار الافتراضي عند الطباعة */
+    #logo-light {
+        display: block !important;
+    }
+
+    #logo-dark {
+        display: none !important;
+    }
+
+    /* إخفاء زر المساعدة عند الطباعة */
+    #info-btn {
+        display: none !important;
+    }
+}
+
+/* محاذاة النصوص العربية من اليمين إلى اليسار */
+/* محاذاة النص الخاص باسم المطور في المنتصف */
+.modal-content p[data-ar] {
+    text-align: center; /* النص في المنتصف */
+    direction: rtl; /* النص من اليمين إلى اليسار */
+}
+
+/* محاذاة النصوص التعليمية من اليمين إلى اليسار */
+body[dir="rtl"] .modal-content ul li[data-ar] {
+    direction: rtl;
+    text-align: right; /* النصوص التعليمية من اليمين إلى اليسار */
+}
+
+/* محاذاة النصوص التعليمية في المنتصف للغة الإنجليزية */
+body[dir="ltr"] .modal-content ul li[data-en] {
+    direction: ltr;
+    text-align: center; /* النصوص التعليمية في المنتصف */
+}
+
+/* محاذاة النصوص للمنتصف */
+.modal-content p {
+    text-align: center;
+}
