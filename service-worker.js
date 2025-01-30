@@ -1,6 +1,6 @@
 const CACHE_NAME = 'my-site-cache-v1';
 const urlsToCache = [
-    './',
+    './', // Make sure this URL is correct and accessible via HTTP or HTTPS
     './index.html',
     './style.css',
     './script.js',
@@ -21,6 +21,10 @@ self.addEventListener('install', (event) => {
 
 // التعامل مع طلبات الشبكة
 self.addEventListener('fetch', (event) => {
+    if (event.request.url.startsWith('chrome-extension://')) {
+        return; // Ignore requests from the chrome-extension scheme
+    }
+
     event.respondWith(
         caches.match(event.request)
             .then((response) => {
